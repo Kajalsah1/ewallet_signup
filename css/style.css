@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #6f8f6b;
+    color: white;
+    padding: 15px 30px;
+}
+
+/* Center container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+/* Signup box */
+.signup-box {
+    background-color: #6f8f6b;
+    padding: 30px;
+    border-radius: 12px;
+    width: 350px;
+    color: white;
+    text-align: center;
+}
+
+/* Labels */
+.signup-box label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+/* Inputs */
+.signup-box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+/* Password row */
+.row {
+    display: flex;
+    gap: 15px;  /* FIXED spacing */
+}
+
+.row div {
+    width: 100%;
+}
+
+/* Buttons section */
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Buttons */
+.signup-btn,
+.login-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #d9e2d6;
+}
+
+/* OR text */
+.buttons span {
+    color: white;
+}
