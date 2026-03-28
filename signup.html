@@ -2,46 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EWallet Sign Up</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header class="navbar">
-    <h2>EWallet</h2>
+    <div class="nav-left">
+        <img src="icons/Wallet.png" alt="Wallet Icon" class="nav-logo">
+        <h2>EWallet</h2>
+    </div>
+    <button id="theme-toggle" class="toggle-btn">Switch Mode</button>
 </header>
 
 <div class="container">
     <div class="signup-box">
         <h2>Join EWallet</h2>
-
+        <img src="icons/Wallet.png" alt="Wallet Icon" class="nav-logo">
         <form>
             <label>Full Name:</label>
-            <input type="text" placeholder="Enter your name">
+            <input type="text" placeholder="Enter your name" class="input-field">
 
             <label>Email Address:</label>
-            <input type="email" placeholder="Enter your email">
+            <div class="input-icon-container">
+    <img src="icons/username.png" alt="Profile Icon" class="input-icon">
+    <input type="email" placeholder="Enter your email" class="input-field-with-icon">
+</div>
 
             <div class="row">
                 <div>
                     <label>Password:</label>
-                    <input type="password">
+                    <input type="password" class="input-field-short">
                 </div>
-
                 <div>
                     <label>Confirm:</label>
-                    <input type="password">
+                    <input type="password" class="input-field-short">
                 </div>
             </div>
 
             <div class="buttons">
                 <button type="submit" class="signup-btn">Sign Up</button>
-                <span>OR</span>
+                <span class="or-divider">OR</span>
                 <button type="button" class="login-btn">Log In</button>
             </div>
         </form>
     </div>
 </div>
+
+<script>
+    const btn = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Check for saved user preference
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-mode');
+    }
+
+    btn.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        const mode = body.classList.contains('dark-mode') ? 'dark' : 'light';
+        localStorage.setItem('theme', mode);
+    });
+</script>
 
 </body>
 </html>

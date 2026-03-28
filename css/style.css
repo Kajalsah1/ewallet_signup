@@ -1,79 +1,180 @@
+/* --- Color Variables --- */
+:root {
+    /* Light Mode (Default) */
+    --bg-page: #f3f3f3;
+    --bg-nav: #6f8f6b;
+    --bg-box: #6f8f6b;
+    --bg-input: #ffffff;
+    --text-main: #ffffff;
+    --text-label: #ffffff;
+    --text-input: #333333;
+    --btn-bg: #e3e8e2;
+    --btn-text: #6f8f6b;
+    --nav-text: #ffffff;
+}
+
+/* Dark Mode (Matches your image) */
+body.dark-mode {
+    --bg-page: #000000;      /* Black background */
+    --bg-nav: #344234;       /* Muted dark olive navbar */
+    --bg-box: #3e4a3e;       /* Forest charcoal box */
+    --bg-input: #dce4e8;     /* Light blue-grey inputs from image */
+    --text-main: #ffffff;
+    --text-label: #ffffff;
+    --text-input: #1a1a1a;
+    --btn-bg: #0d2610;       /* Dark green buttons */
+    --btn-text: #ffffff;     /* White button text */
+    --nav-text: #ffffff;
+}
+
+/* --- Base Styles --- */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f3f3f3;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: var(--bg-page);
+    transition: background-color 0.3s ease;
 }
 
-/* Navbar */
+/* --- Navbar --- */
 .navbar {
-    background-color: #6f8f6b;
-    color: white;
+    background-color: var(--bg-nav);
+    color: var(--nav-text);
     padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
 }
 
-/* Center container */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.navbar h2 { margin: 0; font-size: 24px; }
+.nav-logo { width: 35px; height: auto; }
+
+.toggle-btn {
+    background: rgba(255,255,255,0.2);
+    border: 1px solid white;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* --- Layout --- */
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    min-height: 80vh;
+    padding: 20px;
 }
 
-/* Signup box */
 .signup-box {
-    background-color: #6f8f6b;
-    padding: 30px;
-    border-radius: 12px;
-    width: 350px;
-    color: white;
+    background-color: var(--bg-box);
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px;
+    color: var(--text-main);
     text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
 }
 
-/* Labels */
+.signup-box h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+/* --- Forms --- */
 .signup-box label {
     display: block;
     text-align: left;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
 }
 
-/* Inputs */
-.signup-box input {
+.input-field, .input-field-short, .input-field-with-icon {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
+    padding: 12px;
+    margin-bottom: 20px;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
+    background-color: var(--bg-input);
+    color: var(--text-input);
     box-sizing: border-box;
+    font-size: 16px;
 }
 
-/* Password row */
+/* 1. Ensure the container doesn't have extra bottom margin that offsets the 'center' */
+.input-icon-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px; /* Match the margin-bottom of your other inputs */
+    display: block;      /* Changed from flex to block to let absolute positioning work cleaner */
+}
+
+/* 2. Precision centering for the icon */
+.input-icon {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%); /* This shifts it exactly half its height up */
+    width: 18px; 
+    height: 18px;                /* Setting a fixed height helps centering */
+    z-index: 10;
+    pointer-events: none;
+    
+    /* If it's an <img> tag, add this to ensure it behaves */
+    object-fit: contain; 
+}
+
+/* 3. Ensure the input inside doesn't have a bottom margin that stretches the container */
+.input-field-with-icon {
+    padding-left: 40px !important;
+    margin-bottom: 0 !important; /* The container handles the spacing now */
+}
+
 .row {
     display: flex;
-    gap: 15px;  /* FIXED spacing */
+    gap: 15px;
 }
 
-.row div {
-    width: 100%;
-}
+.row div { flex: 1; }
 
-/* Buttons section */
+/* --- Buttons --- */
 .buttons {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
 }
 
-/* Buttons */
-.signup-btn,
-.login-btn {
-    padding: 8px 15px;
+.signup-btn, .login-btn {
+    flex: 1;
+    padding: 12px;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
+    font-weight: bold;
     cursor: pointer;
-    background-color: #d9e2d6;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    transition: transform 0.1s;
 }
 
-/* OR text */
-.buttons span {
-    color: white;
+.signup-btn:active, .login-btn:active {
+    transform: scale(0.98);
+}
+
+.or-divider {
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0.8;
 }
