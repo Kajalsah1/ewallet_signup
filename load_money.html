@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EWallet – Load Funds</title>
+  <link rel="stylesheet" href="css/load_style.css" />
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <div class="nav-logo">
+        <!-- ICON SLOT ➜ icons/ewallet-logo.svg -->
+        <img src="icons/Wallet.png" alt="" class="icon-logo" />
+        <span>EWallet</span>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Notifications">
+        <!-- ICON SLOT ➜ icons/bell.svg -->
+        <img src="icons/notificationbell.png" alt="Notifications" class="icon-md" />
+      </button>
+      <button class="icon-btn" aria-label="Profile">
+        <!-- ICON SLOT ➜ icons/user.svg -->
+        <img src="icons/userprofile.png" alt="Profile" class="icon-md" />
+      </button>
+      <div class="nav-user">
+        <span class="user-name">Username</span>
+        <span class="user-email">email@yz.com</span>
+      </div>
+      <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle dark mode">
+        <span id="themeIcon">🌙</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── MAIN ── -->
+  <main class="main-content">
+    <h1 class="page-title">Load Funds</h1>
+
+    <div class="content-grid">
+
+      <!-- Amount Card -->
+      <div class="card amount-card">
+        <label class="input-label" for="amountInput">Enter amount</label>
+        <div class="amount-display">
+          <span class="currency">NRP</span>
+          <input
+            type="number"
+            id="amountInput"
+            class="amount-input"
+            placeholder="XXX"
+            min="0"
+          />
+        </div>
+        <div class="divider"></div>
+        <div class="preset-amounts">
+          <button class="preset-btn" data-amount="100">NRP 100</button>
+          <button class="preset-btn" data-amount="500">NRP 500</button>
+          <button class="preset-btn" data-amount="1000">NRP 1000</button>
+        </div>
+        <button class="load-btn" id="loadBtn">Load Money</button>
+      </div>
+
+      <!-- Funding Sources Card -->
+      <div class="card funding-card">
+        <h2 class="funding-title">Funding Sources</h2>
+
+        <div class="funding-list">
+          <label class="funding-option">
+            <div class="funding-option-left">
+              <!-- ICON SLOT ➜ icons/visa-card.svg -->
+              <img src="icons/debit.png" alt="" class="icon-funding" />
+              <span>Visa debit card</span>
+            </div>
+            <input type="radio" name="fundingSource" value="visa" checked />
+            <span class="radio-custom"></span>
+          </label>
+
+          <label class="funding-option">
+            <div class="funding-option-left">
+              <!-- ICON SLOT ➜ icons/bank.svg -->
+              <img src="icons/bank.png" alt="" class="icon-funding" />
+              <span>Bank</span>
+            </div>
+            <input type="radio" name="fundingSource" value="bank" />
+            <span class="radio-custom"></span>
+          </label>
+        </div>
+
+        <p class="security-note">Keep your transactions protected with EWallet</p>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
